@@ -3,8 +3,6 @@ import React,{Children, lazy} from 'react'
 import Home from '../views/Home'
 import Login from '../views/Login'
 //const Home = lazy(()=>import("../views/Home"))
-const About = lazy(()=>import("../views/Page301"))
-const User = lazy(()=>import("../views/User"))
 const Page1 = lazy(()=>import("../views/Page1"))
 const Page2 = lazy(()=>import("../views/Page2"))
 const Page301 = lazy(()=>import("../views/Page301"))

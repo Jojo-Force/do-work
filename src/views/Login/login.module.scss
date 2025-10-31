@@ -52,4 +52,26 @@
         }
       }
     }
+    .quiz{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .radio {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quizSpan{
+      &.rightAnswer {
+        color: red;
+      }
+    }
+    .quizNumber{
+      font-size: 20px;
+    }
+    .quizAsk{
+      font-weight: normal;
+      font-size: 30px;
+    }
   }

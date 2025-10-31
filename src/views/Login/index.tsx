@@ -1,10 +1,13 @@
 import style from './login.module.scss'
 import initLoginBg from './init.ts'
 import { useEffect, useState, type ChangeEvent } from 'react'
-import { Button, Input, Space,message } from 'antd';
+import {Button, Input, Space, message, Checkbox, type CheckboxProps, Radio, type RadioChangeEvent} from 'antd';
 import './login.less'
 import {useNavigate} from "react-router-dom"
 import { CaptchaAPI,LoginAPI } from '@/request/api';
+import classNames from "classnames";
+import workDataAll from '../../workdata';
+import type {Work} from "../../types/api";
 
 const View = () => {
     let navigateTo = useNavigate();
@@ -16,54 +19,6 @@ const View = () => {
     },[])
 
     //获取用户输入的信息
-    const [usernameVal,setUsernameVal] = useState("");//定义用户名信息变量
-    const [passwordVal,setPasswordVal] = useState("");//定义密码信息变量
-    const [captchVal,setCaptchVal] = useState("");//定义密码信息变量
-
-    const [captchaImg,setCaptchImg] = useState("");
-
-    const usernameChange = (e:ChangeEvent<HTMLInputElement>)=>{
-        //console.log(e.target.value)
-        setUsernameVal(e.target.value);
-    }
-
-    const passwordChange = (e:ChangeEvent<HTMLInputElement>)=>{
-        //console.log(e.target.value)
-        setPasswordVal(e.target.value);
-    }
-
-    const captchChange = (e:ChangeEvent<HTMLInputElement>)=>{
-        //console.log(e.target.value)
-        setCaptchVal(e.target.value);
-    }
-
-    const goLogin = async () =>{
-        console.log("用户输入的用户名，密码，验证码分别是：",usernameVal,passwordVal,captchVal)
-        //验证是否有空值
-        if(!usernameVal.trim() || !passwordVal.trim() || !captchVal.trim()){
-            alert("请完整输入信息!")
-            return 
-        }
-
-        let loginAPIRes = await LoginAPI({
-            username:usernameVal,
-            password:passwordVal,
-            code:captchVal,
-            uuid:localStorage.getItem("uuid") as string
-        })
-
-        console.log(loginAPIRes)
-        if(loginAPIRes.code === 200){
-            //1.提示登录成功
-            message.success('登录成功! ')
-            //2.保存token
-            localStorage.setItem("lege-react-management-token",loginAPIRes.token)
-            //3.跳转到/page1
-            navigateTo("/page1")
-            //4.删除本地保存中的uuid
-            localStorage.removeItem("uuid")
-        }
-    }
 
     const getCaptchaImg = async ()=>{
         // captchaAPI().then((res)=>{
@@ -76,6 +31,48 @@ const View = () => {
             localStorage.setItem("uuid",capthaAPIRes.uuid)
         }
     }
+
+    const [value, setValue] = useState('');
+    const [rightAnswer, setRightAnswer] = useState("");
+    const [captchaImg,setCaptchImg] = useState("");
+
+    const [workData,setWorkData] = useState<Work>(workDataAll[0]);
+    const [number,setNumber] = useState(1);
+    const onRadioChange = (e: RadioChangeEvent) => {
+        setValue(e.target.value);
+        console.log(e.target.value);
+    };
+
+    const goNext = () =>{
+        console.log("本题目选择为：", value)
+        //验证是否有空值
+        if(!value.trim()){
+            alert("亲爱的老婆：请选择!")
+            return
+        }
+        if(value !== workData.answer){
+            alert("亲爱的老婆：回答错误!")
+            return
+        }
+
+        if(number < workDataAll.length) {
+            setRightAnswer('');
+            setValue('');
+            setWorkData(workDataAll[number]);
+            setNumber(number + 1);
+        }
+        else{
+            alert("亲爱的老婆：全部做完!")
+        }
+    }
+    const getAnswer = ()=>{
+        console.log("答案是：",workData.answer)
+        if(rightAnswer === "") {
+            setRightAnswer(workData.answer);
+        } else {
+            setRightAnswer('');
+        }
+    }
     return (
         <div className={style.loginPage}>
             {/* 存放背景 */}
@@ -84,24 +81,39 @@ const View = () => {
             <div className={style.loginBox+ " loginbox"}>
                 {/* 标题部分 */}
                 <div className={style.title}>
-                    <h1>前端乐哥&nbsp; &nbsp;通用后台系统</h1>
-                    <p>Strive Everyday</p>
+                    <h1>Jojo的心理学刷题APP</h1>
+                    <p>老婆加油！</p>
                 </div>
 
                 {/* 表单部分 */}
-                <div className='form'>
-                    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-                    <Input placeholder="用户名" onChange={usernameChange}/>
-                    <Input.Password placeholder="密码" onChange={passwordChange}/>
-                    <div className={style.captchaBox}>
-                        <Input placeholder="验证码" onChange={captchChange}/>
-                        <div className={style.captchaImg} onClick={getCaptchaImg}>
-                            <img height="38px" src={captchaImg} alt="" />
-                        </div>
-                    </div>
-                    <Button type="primary" className="loginBtn" block onClick={goLogin}>登录</Button>
+                <div className={style.quiz}>
+                    <Space direction="vertical" size="large" style={{ display: 'flex' }}>
+                        <span className={style.quizNumber}>第{number}题：</span>
+                        <p className={style.quizAsk}>{workData.ask}</p>
+                        <Radio.Group
+                            style={{        display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                paddingLeft: '120px',
+                                gap: 8}}
+                            onChange={onRadioChange}
+                            value={value}
+                            options={[
+                                { value: 'A', label: <span className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer === 'A'})}>{workData.A}</span> },
+                                { value: 'B', label: <span className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer === 'B'})}>{workData.B}</span> },
+                                { value: 'C', label: <span className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer === 'C'})}>{workData.C}</span> },
+                                { value: 'D', label: <span className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer === 'D'})}>{workData.D}</span> }
+                            ]}
+                        />
+                        <Button type="primary" className="loginBtn" block onClick={goNext}>下一题</Button>
+                        <Button type="primary" className="loginBtn" block onClick={getAnswer}>答案</Button>
                     </Space>
+
                 </div>
+                {/*<div className='quiz'>*/}
+
+
+                {/*</div>*/}
             </div>
 
         </div>

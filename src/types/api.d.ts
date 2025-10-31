@@ -30,3 +30,12 @@ interface LoginAPIRes {
     code: number;
     token: string;
 }
+
+interface Work {
+    ask: string;
+    A: string;
+    B: string;
+    C: string;
+    D: string;
+    answer: string;
+}

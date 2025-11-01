@@ -193,6 +193,7 @@ const workDataMulti:Work[] = [
         D: "利用专业资料和数据库",
         answer: "ABCD",
     },
+
 ]
 
 export default workDataMulti;

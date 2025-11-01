@@ -10,7 +10,7 @@ const JudgeQuiz = ({onRadioChange,value,rightAnswer}:JudgeQuizProps) =>{
             style={{        display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                paddingLeft: '120px',
+                paddingLeft: '35%',
                 gap: 8}}
                 onChange={onRadioChange}
                 value={value}

@@ -8,6 +8,7 @@
 // }
 
 import type Password from "antd/es/input/Password";
+import type {RadioChangeEvent} from "antd";
 
 // 验证码的响应类型约束
 interface CaptchaAPIRes {
@@ -38,4 +39,23 @@ interface Work {
     C: string;
     D: string;
     answer: string;
+}
+
+interface SingleQuizProps {
+    onRadioChange: (e: RadioChangeEvent) => void; // ✅ 正确类型
+    value: string;
+    rightAnswer: string;
+    workData: Work;
+}
+
+interface MultiQuizProps {
+    onCheckBoxChange:(checkedValues: string[]) => void;
+    rightAnswer: string;
+    workData: Work;
+}
+
+interface JudgeQuizState {
+    onRadioChange: (e: RadioChangeEvent) => void;
+    value: string;
+    rightAnswer: string;
 }

@@ -1,7 +1,7 @@
 .loginPage {
     position: relative;
     .loginBox {
-      width: 450px;
+      width: 380px;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -63,15 +63,18 @@
       gap: 8px;
     }
     .quizSpan{
+      color: rgba(255,255,255,0.88);
+      font-size: 25px;
       &.rightAnswer {
         color: red;
       }
     }
     .quizNumber{
       font-size: 20px;
+
     }
     .quizAsk{
       font-weight: normal;
-      font-size: 30px;
+      font-size: 25px;
     }
   }

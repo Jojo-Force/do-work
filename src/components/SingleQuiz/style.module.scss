@@ -1,0 +1,25 @@
+.quiz{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.radio {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quizSpan{
+  color: rgba(255,255,255,0.88);
+  font-size: 25px;
+  &.rightAnswer {
+    color: red;
+  }
+}
+.quizNumber{
+  font-size: 20px;
+
+}
+.quizAsk{
+  font-weight: normal;
+  font-size: 25px;
+}

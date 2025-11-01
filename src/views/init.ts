@@ -10,7 +10,7 @@ export default function loginBgAnimation() {
       h = (canvas.height = windowHeight),
       hue = 217,
       stars: IntStart[] = [],
-      maxStars = 500; //星星数量
+      maxStars = 50; //星星数量
   
     const canvas2 = document.createElement("canvas"),
       ctx2 = canvas2.getContext("2d") as CanvasRenderingContext2D;
@@ -63,14 +63,14 @@ export default function loginBgAnimation() {
     }
     const Star = function (this: IntStart) {
       this.orbitRadius = random(maxOrbit(w, h));
-      this.radius = random(60, this.orbitRadius) / 18;
+      this.radius = random(100, this.orbitRadius) / 18;
       //星星大小
       this.orbitX = w / 2;
       this.orbitY = h / 2;
       this.timePassed = random(0, maxStars);
       this.speed = random(this.orbitRadius) / 500000;
       //星星移动速度
-      this.alpha = random(2, 10) / 0.01;
+      this.alpha = random(2, 10) / 0.1;
   
       count++;
       stars[count] = this;
@@ -82,9 +82,9 @@ export default function loginBgAnimation() {
         twinkle = random(10);
   
       if (twinkle === 1 && this.alpha > 0) {
-        this.alpha -= 0.05;
+        this.alpha -= 0.005;
       } else if (twinkle === 2 && this.alpha < 1) {
-        this.alpha += 0.05;
+        this.alpha += 0.005;
       }
   
       ctx.globalAlpha = this.alpha;

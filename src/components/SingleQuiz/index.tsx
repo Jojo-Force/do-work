@@ -1,4 +1,4 @@
-import {Radio, type RadioChangeEvent} from "antd";
+import {Radio} from "antd";
 import classNames from "classnames";
 import style from "./style.module.scss";
 import type {SingleQuizProps} from "../../types/api";

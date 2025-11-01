@@ -2,7 +2,7 @@ import type {Work} from "../../types/api";
 
 const workDataJudge:Work[] = [
     {
-        ask: "调节内脏系统活动的皮层下中枢位于下丘脑。",
+        ask: "脑的最古老部位是脑干。",
         A: "",
         B: "",
         C: "",
@@ -10,7 +10,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "全部社会化的前提是道德社会化。",
+        ask: "家庭不是社会化的载体。",
         A: "",
         B: "",
         C: "",
@@ -26,7 +26,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "无对象性的知觉是错觉。",
+        ask: "人耳对16~20000赫兹的声波最敏感。",
         A: "",
         B: "",
         C: "",
@@ -42,7 +42,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "心理咨询对精神障碍患者的作用是精神分析。",
+        ask: "人对现实事件的反应方式不包括悟性反应。",
         A: "",
         B: "",
         C: "",
@@ -66,12 +66,12 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "解释是为求助者提供新的思维方法。",
+        ask: "内容反应的含义是心理咨询师解释心理问题的内容。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:O",
+        answer: "J:X",
     },
     {
         ask: "16PF施测时的时间限制是40分钟?。",
@@ -90,7 +90,7 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "癔症型多话的求助者主要的目的获得赞赏。",
+        ask: "咨询转介的正确做法是对新咨询师详细介绍情况。",
         A: "",
         B: "",
         C: "",
@@ -106,12 +106,12 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "多疑嫉妒属于社会环境性压力源。",
+        ask: "压力源的性质包括生物性的和社会性的。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:X",
+        answer: "J:O",
     },
     {
         ask: "急性应激障碍的病程为数分钟至数小时。",
@@ -138,12 +138,12 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "调整认知可以作为咨询目标。",
+        ask: "求助者的主要问题一定是最先提出的问题。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:O",
+        answer: "J:X",
     },
     {
         ask: "合理情绪疗法不适用于年纪较大的求助者。",
@@ -154,12 +154,12 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "呼吸放松法包括控制呼吸放松法。",
+        ask: "出现阻抗属于正常现象，咨询师完全不必在意。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:O",
+        answer: "J:X",
     },
     {
         ask: "主张人性是“有善有恶”的中国古代思想家是荀子。",
@@ -178,7 +178,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "一般情况下，婴儿的分离焦虑要经历4个发展阶段。",
+        ask: "婴儿动作发展的规律性是从随意动作向不随意动作发展。",
         A: "",
         B: "",
         C: "",
@@ -203,4 +203,4 @@ const workDataJudge:Work[] = [
     },
 ]
 
-export default  workDataJudge
+export default workDataJudge;

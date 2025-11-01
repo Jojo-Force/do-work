@@ -1,10 +1,10 @@
 import {Radio} from "antd";
 import classNames from "classnames";
 import style from "../SingleQuiz/style.module.scss";
-import type {JudgeQuizState} from "../../types/api";
+import type {JudgeQuizProps} from "../../types/api";
 
 
-const JudgeQuiz = ({onRadioChange,value,rightAnswer}:JudgeQuizState) =>{
+const JudgeQuiz = ({onRadioChange,value,rightAnswer}:JudgeQuizProps) =>{
     return (
         <Radio.Group
             style={{        display: 'flex',

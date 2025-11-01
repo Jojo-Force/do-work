@@ -2,7 +2,7 @@ import type {Work} from "../../types/api";
 
 const workDataJudge:Work[] = [
     {
-        ask: "调节内脏系统活动的皮层下中枢位于下丘脑。",
+        ask: "人脑最古老部位是脑干。",
         A: "",
         B: "",
         C: "",
@@ -10,7 +10,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "全部社会化的前提是道德社会化。",
+        ask: "社会化的载体不包括家庭。",
         A: "",
         B: "",
         C: "",
@@ -26,7 +26,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "无对象性的知觉是错觉。",
+        ask: "人耳对16~20000赫兹的声波最敏感。",
         A: "",
         B: "",
         C: "",
@@ -42,7 +42,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "心理咨询对精神障碍患者的作用是精神分析。",
+        ask: "抑郁症是心理咨询的工作范围。",
         A: "",
         B: "",
         C: "",
@@ -66,15 +66,15 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "解释是为求助者提供新的思维方法。",
+        ask: "内容反应的含义是心理咨询师解释心理问题的内容。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:O",
+        answer: "J:X",
     },
     {
-        ask: "16PF施测时的时间限制是40分钟?。",
+        ask: "16PF施测时的时间限制是40分钟。",
         A: "",
         B: "",
         C: "",
@@ -90,7 +90,7 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "癔症型多话的求助者主要的目的获得赞赏。",
+        ask: "咨询转介的正确做法是对新咨询师详细介绍情况。",
         A: "",
         B: "",
         C: "",
@@ -98,15 +98,15 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "获得知情同意有两种常用方法：口头讨论和书面材料。",
+        ask: "集体潜意识是弗洛伊德理论中的概念。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:O",
+        answer: "J:X",
     },
     {
-        ask: "多疑嫉妒属于社会环境性压力源。",
+        ask: "幻想是一种精神病性症状。",
         A: "",
         B: "",
         C: "",
@@ -122,7 +122,7 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "我国《心理咨询师国家职业标准》(试用版)颁布于2001年。",
+        ask: "我国《心理咨询师国家职业标准》(试用)颁布于2001年。",
         A: "",
         B: "",
         C: "",
@@ -138,12 +138,12 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "调整认知可以作为咨询目标。",
+        ask: "求助者的主要问题一定是最先提出的问题。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:O",
+        answer: "J:X",
     },
     {
         ask: "合理情绪疗法不适用于年纪较大的求助者。",
@@ -154,12 +154,12 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "呼吸放松法包括控制呼吸放松法。",
+        ask: "出现阻抗属于正常现象，咨询师完全不必在意。",
         A: "",
         B: "",
         C: "",
         D: "",
-        answer: "J:O",
+        answer: "J:X",
     },
     {
         ask: "主张人性是“有善有恶”的中国古代思想家是荀子。",
@@ -178,7 +178,7 @@ const workDataJudge:Work[] = [
         answer: "J:O",
     },
     {
-        ask: "一般情况下，婴儿的分离焦虑要经历4个发展阶段。",
+        ask: "婴儿动作发展的规律是从随意动作向不随意动作发展。",
         A: "",
         B: "",
         C: "",
@@ -186,7 +186,7 @@ const workDataJudge:Work[] = [
         answer: "J:X",
     },
     {
-        ask: "MMPI第一版共有14个量表，不属于效度量表的是D量表。",
+        ask: "MMPID量表不属于效度量表。",
         A: "",
         B: "",
         C: "",

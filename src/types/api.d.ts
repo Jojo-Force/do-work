@@ -54,8 +54,29 @@ interface MultiQuizProps {
     workData: Work;
 }
 
-interface JudgeQuizState {
+interface JudgeQuizProps {
     onRadioChange: (e: RadioChangeEvent) => void;
     value: string;
     rightAnswer: string;
+}
+
+interface QuizProps {
+    number: number;
+    workData: Work;
+    settingValue: number;
+    quizType: number;
+    onRadioChange: (e: RadioChangeEvent) => void;
+    rightAnswer: string;
+    value: string;
+    life: number;
+    onCheckBoxChange:(checkedValues: string[]) => void;
+    goNext: () => void;
+    getAnswer: () => void;
+}
+
+interface SettingProps {
+    onSettingCheckBoxChange: (e: RadioChangeEvent) => void;
+    settingValue: number;
+    goBack: () => void;
+    goCancel: () => void;
 }

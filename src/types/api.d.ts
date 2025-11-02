@@ -79,5 +79,4 @@ interface SettingProps {
     onSettingCheckBoxChange: (e: RadioChangeEvent) => void;
     settingValue: number;
     goBack: () => void;
-    goCancel: () => void;
 }

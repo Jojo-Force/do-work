@@ -19,7 +19,6 @@ import {
 } from '@ant-design/icons';
 import Quiz from "../components/Quiz";
 import Setting from "../components/Setting";
-import setting from "../components/Setting";
 import {LIFE_ADD, LIFE_ERR, LIFE_INIT, QUIZ_PAGE, SETTING_PAGE} from "../constant";
 const View = () => {
     // 加载完这个组件之后，加载背景
@@ -344,7 +343,7 @@ const View = () => {
                       life={life} showAnswerBtn={showAnswerBtn}
                 />}
                 {quizOrSetting === SETTING_PAGE && <Setting onSettingCheckBoxChange={onSettingCheckBoxChange}
-                         settingValue={settingValue} goBack={goBack} goCancel={switchPage}/>}
+                         settingValue={settingValue} goBack={goBack} />}
                 {/*<div className='quiz'>*/}
 
 

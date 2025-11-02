@@ -1,9 +1,9 @@
 import style from "../SingleQuiz/style.module.scss";
-import {Button, Checkbox, Popconfirm, Radio, Space} from "antd";
+import {Button, Radio, Space} from "antd";
 import classNames from "classnames";
 import type {SettingProps} from "../../types/api";
 
-const Setting = ({onSettingCheckBoxChange,settingValue,goBack,goCancel}:SettingProps) =>{
+const Setting = ({onSettingCheckBoxChange,settingValue,goBack}:SettingProps) =>{
     return (
         <div className={style.quiz}>
 

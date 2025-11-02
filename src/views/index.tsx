@@ -155,7 +155,7 @@ const View = () => {
             setLife(LIFE_INIT);
             setShowAnswerBtn(false);
         }
-    }, [life])
+    }, [life,settingValue])
 
     const onRadioChange = (e: RadioChangeEvent) => {
         setValue(e.target.value);

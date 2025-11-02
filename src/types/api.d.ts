@@ -72,6 +72,7 @@ interface QuizProps {
     onCheckBoxChange:(checkedValues: string[]) => void;
     goNext: () => void;
     getAnswer: () => void;
+    showAnswerBtn: boolean;
 }
 
 interface SettingProps {

@@ -6,12 +6,21 @@ import type {SingleQuizProps} from "../../types/api";
 
 
 
+function max(a: number, b: number): number {
+    return a > b ? a : b;
+}
+
 const SingleQuiz = ({onRadioChange,
                      value,
                      rightAnswer,
                      workData }:SingleQuizProps) => {
+    let maxLength = 0
+    maxLength = max(workData.A.length, maxLength)
+    maxLength = max(workData.B.length, maxLength)
+    maxLength = max(workData.C.length, maxLength)
+    maxLength = max(workData.D.length, maxLength)
 
-    if(workData.A.length < 10)
+    if(maxLength < 10)
     {
         return (
             <Radio.Group
@@ -31,7 +40,7 @@ const SingleQuiz = ({onRadioChange,
             />)
     }
 
-    if(workData.A.length < 15)
+    if(maxLength < 15)
     {
         return (
             <Radio.Group
@@ -51,7 +60,7 @@ const SingleQuiz = ({onRadioChange,
             />)
     }
 
-    if(workData.A.length >= 15) {
+    if(maxLength >= 15) {
         return (
             <Radio.Group
                 style={{
@@ -77,7 +86,7 @@ const SingleQuiz = ({onRadioChange,
                     },
                     {value: 'D',
                         label: <span
-                            className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer === 'D'})}>{workData.D}</span>
+                            className={classNames(style.quizSpanSmall, {[style.rightAnswer]: rightAnswer === 'D'})}>{workData.D}</span>
                     }
                 ]}
             />)

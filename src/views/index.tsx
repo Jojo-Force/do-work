@@ -20,7 +20,7 @@ import {
 import Quiz from "../components/Quiz";
 import Setting from "../components/Setting";
 import setting from "../components/Setting";
-import {QUIZ_PAGE, SETTING_PAGE} from "../constant";
+import {LIFE_ADD, LIFE_ERR, LIFE_INIT, QUIZ_PAGE, SETTING_PAGE} from "../constant";
 const View = () => {
     // 加载完这个组件之后，加载背景
     useEffect(()=>{
@@ -40,7 +40,7 @@ const View = () => {
             style: {
                 marginTop: '20vh',
             },
-        },1);
+        },2);
     };
 
     const msgError = (str:string) => {
@@ -50,7 +50,7 @@ const View = () => {
             style: {
                 marginTop: '20vh',
             },
-        },1);
+        },2);
     };
     const saveData = () => {
         localStorage.setItem('value', value);
@@ -61,6 +61,7 @@ const View = () => {
         localStorage.setItem('quizType', quizType);
         localStorage.setItem('life', life.toString());
         localStorage.setItem('settingValue', settingValue.toString());
+        localStorage.setItem('showAnswerBtn', showAnswerBtn.toString());
     }
 
     const loadData = () => {
@@ -74,11 +75,14 @@ const View = () => {
         if (localStorage.getItem('mulValue') !== '') {
             setMulValue(JSON.parse(localStorage.getItem('mulValue') as string));
         }
-        setLife(parseInt(localStorage.getItem('life') || '3'));
+        setLife(parseInt(localStorage.getItem('life') || LIFE_INIT.toString()));
         if(localStorage.getItem('quizType') !== ''){
             setQuizType(localStorage.getItem('quizType') as string);
         }
 
+        if(localStorage.getItem('showAnswerBtn') !== ''){
+            setShowAnswerBtn(Boolean(localStorage.getItem('showAnswerBtn') as string));
+        }
         setSettingValue(parseInt(localStorage.getItem('settingValue') || '0'))
     }
 
@@ -88,8 +92,9 @@ const View = () => {
         setWorkData(workDataAll[settingValue][0]);
         setNumber(1);
         setMulValue(['']);
-        setLife(3);
+        setLife(LIFE_INIT);
         setQuizType(SINGLE_QUIZ)
+        setShowAnswerBtn(false)
     }
 
     //获取用户输入的信息
@@ -114,10 +119,11 @@ const View = () => {
 
     const [mulValue,setMulValue] = useState(['']);
     const [quizType,setQuizType] = useState(SINGLE_QUIZ);
-    const [life,setLife] = useState(3);
+    const [life,setLife] = useState(LIFE_INIT);
     const [lastSettingValue,setLastSettingValue] = useState(0);
     const [settingValue,setSettingValue] = useState(0);
     const [quizOrSetting,setQuizOrSetting] = useState(0);
+    const [showAnswerBtn,setShowAnswerBtn] = useState(false);
 
     const getQuizType = () => {
         if(workDataAll[settingValue][number-1].answer.length > 1) {
@@ -135,7 +141,7 @@ const View = () => {
         console.log('number 已更新为：', number);
         setQuizType(getQuizType())
         saveData()
-    }, [getQuizType, number, saveData])
+    }, [number])
     
 
     useEffect(() => {
@@ -146,7 +152,8 @@ const View = () => {
             setValue('');
             setMulValue(['']);
             setRightAnswer('');
-            setLife(3);
+            setLife(LIFE_INIT);
+            setShowAnswerBtn(false);
         }
     }, [life])
 
@@ -172,18 +179,22 @@ const View = () => {
         }
         return false
     }
-    
+
+
     const judgeNext = () =>{
         if (number < workDataAll[settingValue].length) {
             setRightAnswer('');
             setValue('');
             setMulValue(['']);
+
+
             if(number > 5 && number % 10 === 0) {
-                setLife(life+1)
-                msgSucess('每过10关生命值+1，太棒了，老婆！')
+                setLife(life + LIFE_ADD)
+                msgSucess('每过10关生命值 + '+LIFE_ADD.toString()+'，太棒了，老婆！')
             }
             setWorkData(workDataAll[settingValue][number]);
             setNumber(number + 1);
+            setShowAnswerBtn(false);
             console.log('quizType', quizType,getQuizType());
             saveData()
         } else {
@@ -201,7 +212,8 @@ const View = () => {
             }
             if (value !== workData.answer) {
                 msgError("亲爱的老婆：回答错误!")
-                setLife(life-1)
+                setLife(life - LIFE_ERR)
+                setShowAnswerBtn(true)
                 return
             }
 
@@ -218,7 +230,8 @@ const View = () => {
 
             if(!getMulRight()) {
                 msgError("亲爱的老婆：回答错误!")
-                setLife(life-1)
+                setLife(life - LIFE_ERR)
+                setShowAnswerBtn(true)
                 return
             }
 
@@ -235,7 +248,8 @@ const View = () => {
 
             if (value !== workData.answer) {
                 msgError("亲爱的老婆：回答错误!")
-                setLife(life-1)
+                setLife(life - LIFE_ERR)
+                setShowAnswerBtn(true)
                 return
             }
 
@@ -245,7 +259,7 @@ const View = () => {
     const getAnswer = ()=>{
         console.log("答案是：",workData.answer)
         if(rightAnswer === "") {
-            setLife(life-1)
+            //setLife(life - LIFE_ERR)
             setRightAnswer(workData.answer);
         } else {
             setRightAnswer('');
@@ -327,7 +341,7 @@ const View = () => {
                       onCheckBoxChange={onCheckBoxChange}
                       number={number}
                       value={value}
-                      life={life}
+                      life={life} showAnswerBtn={showAnswerBtn}
                 />}
                 {quizOrSetting === SETTING_PAGE && <Setting onSettingCheckBoxChange={onSettingCheckBoxChange}
                          settingValue={settingValue} goBack={goBack} goCancel={switchPage}/>}

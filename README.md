@@ -1,6 +1,6 @@
 # do-work
 
-do-work is a psychology quiz app, simple on https://jojo-force.github.io/
+do-work is a psychology quiz app created by react.js, simple on https://jojo-force.github.io/
 
 ## Install Package
 

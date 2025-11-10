@@ -13,7 +13,6 @@ const Setting = ({onSettingCheckBoxChange,settingValue,goBack}:SettingProps) =>{
                     style={{        display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        paddingLeft: '120px',
                         gap: 8}}
                     onChange={onSettingCheckBoxChange}
                     value={settingValue}

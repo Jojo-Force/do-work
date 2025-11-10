@@ -8,7 +8,6 @@ import {
 } from 'antd';
 const { confirm } = Modal;
 import './login.less'
-import { CaptchaAPI, } from '@/request/api';
 import workDataAll from '../workdata';
 import type {Work} from "../types/api";
 import {SINGLE_QUIZ,MULTI_QUIZ,JUDGE_QUIZ}from '@/constant';
@@ -24,8 +23,7 @@ const View = () => {
     // 加载完这个组件之后，加载背景
     useEffect(()=>{
         initLoginBg();
-        window.onresize= function(){initLoginBg()};
-        getCaptchaImg();
+        //window.onresize= function(){initLoginBg()};
 
 
         loadData();
@@ -96,18 +94,6 @@ const View = () => {
         setShowAnswerBtn(false)
     }
 
-    //获取用户输入的信息
-    const getCaptchaImg = async ()=>{
-        // captchaAPI().then((res)=>{
-        //     console.log(res);
-        // })
-        let capthaAPIRes = await CaptchaAPI();
-        console.log(capthaAPIRes)
-        if(capthaAPIRes.code === 200){
-            setCaptchImg("data:imgae/gif;base64,"+capthaAPIRes.img)
-            localStorage.setItem("uuid",capthaAPIRes.uuid)
-        }
-    }
 
     const [value, setValue] = useState('');
     const [rightAnswer, setRightAnswer] = useState("");
@@ -145,7 +131,7 @@ const View = () => {
 
     useEffect(() => {
         if(life<= 0){
-            msgError('亲爱的老婆：游戏失败，重来吧！')
+            msgError('游戏失败！')
             setNumber(1)
             setWorkData(workDataAll[settingValue][0]);
             setValue('');
@@ -189,7 +175,7 @@ const View = () => {
 
             if(number > 5 && number % 10 === 0) {
                 setLife(life + LIFE_ADD)
-                msgSucess('每过10关生命值 + '+LIFE_ADD.toString()+'，太棒了，老婆！')
+                msgSucess('每过10关生命值 + '+LIFE_ADD.toString()+'，太棒了！')
             }
             setWorkData(workDataAll[settingValue][number]);
             setNumber(number + 1);
@@ -197,7 +183,7 @@ const View = () => {
             console.log('quizType', quizType,getQuizType());
             saveData()
         } else {
-            msgSucess("亲爱的老婆：太棒了，你真牛！全部做完了!")
+            msgSucess("太棒了，全部做完了!")
         }
     }
 
@@ -206,11 +192,11 @@ const View = () => {
         if(getQuizType() === SINGLE_QUIZ) {
             console.log("本题目选择为：单选：", value)
             if (!value.trim()) {
-                msgSucess("亲爱的老婆：请选择!")
+                msgSucess("请选择!")
                 return
             }
             if (value !== workData.answer) {
-                msgError("亲爱的老婆：回答错误!")
+                msgError("回答错误!")
                 setLife(life - LIFE_ERR)
                 setShowAnswerBtn(true)
                 return
@@ -223,12 +209,12 @@ const View = () => {
         {
             console.log("本题目选择为：多选：", mulValue,mulValue.length)
             if(mulValue.length <= 1) {
-                msgSucess("亲爱的老婆：请选择!")
+                msgSucess("请选择!")
                 return
             }
 
             if(!getMulRight()) {
-                msgError("亲爱的老婆：回答错误!")
+                msgError("回答错误!")
                 setLife(life - LIFE_ERR)
                 setShowAnswerBtn(true)
                 return
@@ -241,12 +227,12 @@ const View = () => {
         {
             console.log("本题目选择为：判断题：", mulValue)
             if (!value.trim()) {
-                msgSucess("亲爱的老婆：请选择!")
+                msgSucess("请选择!")
                 return
             }
 
             if (value !== workData.answer) {
-                msgError("亲爱的老婆：回答错误!")
+                msgError("回答错误!")
                 setLife(life - LIFE_ERR)
                 setShowAnswerBtn(true)
                 return
@@ -316,15 +302,13 @@ const View = () => {
     };
     return (
         <div className={style.loginPage}>
-            {/* 存放背景 */}
-            <canvas id="bg-canvas" style={{display:"block"}}></canvas>
             {/* 登录盒子 */}
             <div className={style.loginBox+ " loginbox"}>
                 {/* 标题部分 */}
                 <div className={style.title}>
-                    <h1 style={{fontSize:'18px'}}>老婆专属心理学刷题</h1>
+                    <h1 style={{fontSize:'18px'}}>心理学刷题</h1>
                     <div className={style.betweenBox}>
-                        <p style={{fontSize:'21px'}}>题库: {settingValue+1} 老婆加油！</p>
+                        <p style={{fontSize:'21px', marginRight:'210px'}}>题库: {settingValue+1} </p>
                         <SettingOutlined onClick={switchPage} style={{fontSize:"30px"}}/>
                     </div>
                 </div>

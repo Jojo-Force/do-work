@@ -24,8 +24,10 @@ const Quiz = ({number,workData,settingValue,quizType,onRadioChange,rightAnswer,v
 
                 {quizType === JUDGE_QUIZ && <JudgeQuiz onRadioChange={onRadioChange} value={value} rightAnswer={rightAnswer}/>}
 
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <Button type="primary" className="loginBtn" block onClick={goNext}>下一题</Button>
                 {showAnswerBtn && <Button type="primary" className="answerBtn" block onClick={getAnswer}>答案</Button>}
+                </div>
 
             </Space>
 

@@ -7,7 +7,7 @@ import JudgeQuiz from "../JudgeQuiz";
 import {JUDGE_QUIZ, MULTI_QUIZ, SINGLE_QUIZ} from "../../constant";
 import type {QuizProps} from "../../types/api";
 
-const Quiz = ({number,workData,settingValue,quizType,onRadioChange,rightAnswer,value,life,onCheckBoxChange,goNext,getAnswer,showAnswerBtn}:QuizProps) =>{
+const Quiz = ({number,workData,settingValue,quizType,onRadioChange,rightAnswer,value,life,onCheckBoxChange,goNext,getAnswer,showAnswerBtn,mulValue}:QuizProps) =>{
 
     let askFontSize = 25
     askFontSize = 25 - workData.ask.length/20;
@@ -20,7 +20,7 @@ const Quiz = ({number,workData,settingValue,quizType,onRadioChange,rightAnswer,v
                     fontSize: `${askFontSize}px`}}>{workData.ask}</p>
                 {quizType === SINGLE_QUIZ && <SingleQuiz onRadioChange={onRadioChange} rightAnswer={rightAnswer} value={value} workData={workData}/>}
 
-                {quizType === MULTI_QUIZ && <MultiQuiz onCheckBoxChange={onCheckBoxChange} rightAnswer={rightAnswer} workData={workData}/>}
+                {quizType === MULTI_QUIZ && <MultiQuiz onCheckBoxChange={onCheckBoxChange} rightAnswer={rightAnswer} workData={workData} mulValue={mulValue}/>}
 
                 {quizType === JUDGE_QUIZ && <JudgeQuiz onRadioChange={onRadioChange} value={value} rightAnswer={rightAnswer}/>}
 

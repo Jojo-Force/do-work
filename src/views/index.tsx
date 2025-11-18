@@ -19,6 +19,7 @@ import {
 import Quiz from "../components/Quiz";
 import Setting from "../components/Setting";
 import {LIFE_ADD, LIFE_ERR, LIFE_INIT, QUIZ_PAGE, SETTING_PAGE} from "../constant";
+
 const View = () => {
     // 加载完这个组件之后，加载背景
     useEffect(()=>{
@@ -78,7 +79,12 @@ const View = () => {
         }
 
         if(localStorage.getItem('showAnswerBtn') !== ''){
-            setShowAnswerBtn(Boolean(localStorage.getItem('showAnswerBtn') as string));
+            const tf = localStorage.getItem('showAnswerBtn') as string;
+            if(tf === 'true'){
+                setShowAnswerBtn(true)
+            } else if(tf === 'false'){
+                setShowAnswerBtn(false)
+            }
         }
         setSettingValue(parseInt(localStorage.getItem('settingValue') || '0'))
     }
@@ -86,7 +92,7 @@ const View = () => {
     const initData = () => {
         setValue('');
         setRightAnswer('');
-        setWorkData(workDataAll[settingValue][0]);
+        setWorkData(getRandomData(workDataAll[settingValue][0]));
         setNumber(1);
         setMulValue(['']);
         setLife(LIFE_INIT);
@@ -123,17 +129,17 @@ const View = () => {
     }
 
     useEffect(() => {
-        console.log('number 已更新为：', number);
+        console.log('number 已更新为：', number,showAnswerBtn);
         setQuizType(getQuizType())
         saveData()
-    }, [number])
+    }, [number,showAnswerBtn])
     
 
     useEffect(() => {
         if(life<= 0){
             msgError('游戏失败！')
             setNumber(1)
-            setWorkData(workDataAll[settingValue][0]);
+            setWorkData(getRandomData(workDataAll[settingValue][0]));
             setValue('');
             setMulValue(['']);
             setRightAnswer('');
@@ -165,6 +171,60 @@ const View = () => {
         return false
     }
 
+    function shuffleArrayFisherYates(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1)); // 随机选择一个索引交换位置
+            [array[i], array[j]] = [array[j], array[i]]; // 通过解构赋值交换元素位置
+        }
+        return array;
+    }
+
+    const getRandomData = (input_data:Work):Work=> {
+        const data:Work = input_data;
+        let answer_text:string[] = [];
+        if(data.answer.includes('J:X') || data.answer.includes('J:O')) {
+            return data;
+        }
+
+        if(data.answer.includes('A')) {
+            answer_text.push(data.A);
+        }
+        if(data.answer.includes('B')) {
+            answer_text.push(data.B);
+        }
+        if(data.answer.includes('C')) {
+            answer_text.push(data.C);
+        }
+        if(data.answer.includes('D')) {
+            answer_text.push(data.D);
+        }
+        //console.log(answer_text);
+        const out:string[] = shuffleArrayFisherYates([data.A,data.B,data.C,data.D]);
+        const out_data:Work = { A: out[0], B: out[1], C: out[2], D: out[3], answer: '', ask: data.ask};
+
+        for (let i = 0; i < answer_text.length; i++) {
+            switch (answer_text[i]) {
+                case out_data.A:
+                    out_data.answer+="A";
+                    break;
+                case out_data.B:
+                    out_data.answer+="B";
+                    break;
+                case out_data.C:
+                    out_data.answer+="C";
+                    break;
+                case out_data.D:
+                    out_data.answer+="D";
+                    break;
+            }
+        }
+        //console.log(out_data);
+        out_data.answer = out_data.answer.split('').sort().join('');
+        console.log(data);
+        console.log(out_data);
+        return out_data;
+
+    }
 
     const judgeNext = () =>{
         if (number < workDataAll[settingValue].length) {
@@ -177,7 +237,7 @@ const View = () => {
                 setLife(life + LIFE_ADD)
                 msgSucess('每过10关生命值 + '+LIFE_ADD.toString()+'，太棒了！')
             }
-            setWorkData(workDataAll[settingValue][number]);
+            setWorkData(getRandomData(workDataAll[settingValue][number]));
             setNumber(number + 1);
             setShowAnswerBtn(false);
             console.log('quizType', quizType,getQuizType());
@@ -324,6 +384,7 @@ const View = () => {
                       onCheckBoxChange={onCheckBoxChange}
                       number={number}
                       value={value}
+                      mulValue={mulValue}
                       life={life} showAnswerBtn={showAnswerBtn}
                 />}
                 {quizOrSetting === SETTING_PAGE && <Setting onSettingCheckBoxChange={onSettingCheckBoxChange}

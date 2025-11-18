@@ -4,12 +4,12 @@ import style from "../SingleQuiz/style.module.scss";
 import type {MultiQuizProps} from "../../types/api";
 
 
-const MultiQuiz = ({onCheckBoxChange,rightAnswer,workData}:MultiQuizProps)=> {
+const MultiQuiz = ({onCheckBoxChange,rightAnswer,workData,mulValue}:MultiQuizProps)=> {
     return (
         <Checkbox.Group style={{ display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            paddingLeft: '10%'}} onChange={onCheckBoxChange}>
+            paddingLeft: '10%'}} onChange={onCheckBoxChange} value={mulValue}>
             <Checkbox value='A'><span className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer.includes('A')})}>{workData.A}</span></Checkbox>
             <Checkbox value='B'><span className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer.includes('B')})}>{workData.B}</span></Checkbox>
             <Checkbox value='C'><span className={classNames(style.quizSpan, {[style.rightAnswer]: rightAnswer.includes('C')})}>{workData.C}</span></Checkbox>

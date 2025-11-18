@@ -51,6 +51,7 @@ interface SingleQuizProps {
 interface MultiQuizProps {
     onCheckBoxChange:(checkedValues: string[]) => void;
     rightAnswer: string;
+    mulValue: string[];
     workData: Work;
 }
 
@@ -73,6 +74,7 @@ interface QuizProps {
     goNext: () => void;
     getAnswer: () => void;
     showAnswerBtn: boolean;
+    mulValue: string[];
 }
 
 interface SettingProps {

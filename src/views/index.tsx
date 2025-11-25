@@ -14,7 +14,7 @@ import {SINGLE_QUIZ,MULTI_QUIZ,JUDGE_QUIZ}from '@/constant';
 
 import {
     SettingOutlined,
-    ExclamationCircleOutlined
+    ExclamationCircleOutlined, FormOutlined
 } from '@ant-design/icons';
 import Quiz from "../components/Quiz";
 import Setting from "../components/Setting";
@@ -364,17 +364,17 @@ const View = () => {
         <div className={style.loginPage}>
             {/* 登录盒子 */}
             <div className={style.loginBox+ " loginbox"}>
+                <main>
                 {/* 标题部分 */}
-                <div className={style.title}>
-                    <h1 style={{fontSize:'18px'}}>心理学刷题</h1>
+                <header className={style.title}>
                     <div className={style.betweenBox}>
-                        <p style={{fontSize:'21px', marginRight:'210px'}}>题库: {settingValue+1} </p>
-                        <SettingOutlined onClick={switchPage} style={{fontSize:"30px"}}/>
+                        <p className={style.quizName}><FormOutlined /> <span className={style.quizNameNumber}>{settingValue+1}</span></p>
+                        <SettingOutlined onClick={switchPage} className={style.settingIcon}/>
                     </div>
-                </div>
+                </header>
 
                 {/* 表单部分 */}
-
+                <section>
                 {quizOrSetting === QUIZ_PAGE && <Quiz goNext={goNext}
                       workData={workData} settingValue={settingValue}
                       rightAnswer={rightAnswer}
@@ -390,9 +390,10 @@ const View = () => {
                 {quizOrSetting === SETTING_PAGE && <Setting onSettingCheckBoxChange={onSettingCheckBoxChange}
                          settingValue={settingValue} goBack={goBack} />}
                 {/*<div className='quiz'>*/}
-
+                </section>
 
                 {/*</div>*/}
+                </main>
             </div>
 
         </div>

@@ -1,7 +1,14 @@
-$color: rgba(0, 4, 255, 0.62);;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+html{
+  font-size: 62.5%;
+}
 body{
-    background-color: $color;
+    background-color: #7950f2;
     // 禁用文字选中
     user-select: none;
 }

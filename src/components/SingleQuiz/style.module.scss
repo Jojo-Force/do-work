@@ -1,3 +1,52 @@
+/*
+
+--- 01 字体系统
+  - FONT SIZE SYSTEM (px)
+  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+  - Font weights:
+  Default：400
+  Medium：500
+  Semi-bold：600
+  Bold：700
+
+  - Line heights:
+  Default: 1
+  Small：1.05
+  Medium:1.2
+  Paragraph default：1.6
+  Large: 1.8
+
+  - Letter spacing
+ -0.5px
+  0.75px
+
+  --- 02 颜色
+  - 主色：#e67e22
+  - Tints: #fdf2e9
+           #fae5d3
+           #eb984e,
+  - Shades:#cf711f
+  #45260a
+  - Accents:
+  - Greys:
+  #888
+  #767676(lightest grey allowed on #fff)
+  #6f6f6f(lightest grey allowed on #fdf2e9)
+  #555
+  #333
+  --- 03 图片
+
+  --- 05 阴影
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 7.5%);
+  --- 06 圆角
+Default: 9px
+Medium: 11px
+  --- 07 空白
+    - SPACING SYSTEM (px)
+    2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
 .quiz{
   display: flex;
   flex-direction: column;
@@ -32,9 +81,51 @@
 }
 .quizNumber{
   font-size: 20px;
-  margin-left: 8px;
+  color: #adb5bd;
 }
 .quizAsk{
   font-weight: normal;
   font-size: 25px;
+}
+
+.quizLife{
+  font-size: 20px;
+  color: #adb5bd;;
+}
+
+.quizLifeIcon{
+  font-size: 20px;
+}
+
+.quizTitle{
+  display: flex;
+  gap: 2.3rem;
+  align-items: center;
+}
+
+
+.SingleQuizRadioSmall{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20%;
+  gap: 8px;
+  margin-bottom: 3rem;
+}
+
+.SingleQuizRadioMedium{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+  gap: 4px;
+  margin-bottom: 3rem;
+}
+
+.SingleQuizRadioLarge{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  margin-bottom: 3rem;
 }

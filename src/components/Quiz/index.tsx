@@ -6,6 +6,7 @@ import MultiQuiz from "../MultiQuiz";
 import JudgeQuiz from "../JudgeQuiz";
 import {JUDGE_QUIZ, MULTI_QUIZ, SINGLE_QUIZ} from "../../constant";
 import type {QuizProps} from "../../types/api";
+import {HeartFilled} from "@ant-design/icons";
 
 const Quiz = ({number,workData,settingValue,quizType,onRadioChange,rightAnswer,value,life,onCheckBoxChange,goNext,getAnswer,showAnswerBtn,mulValue}:QuizProps) =>{
 
@@ -14,8 +15,10 @@ const Quiz = ({number,workData,settingValue,quizType,onRadioChange,rightAnswer,v
 
     return (
         <div className={style.quiz}>
-            <Space direction="vertical" size="middle" style={{ display: 'flex', justifyContent: 'center'}}>
-                <span className={style.quizNumber}>第{number}/{workDataAll[settingValue].length}题  生命：{life}</span>
+            <div className={style.quizTitle}>
+                <span className={style.quizNumber}>{number}/{workDataAll[settingValue].length}</span>
+                <span className={style.quizLife}><HeartFilled className={style.quizLifeIcon}/>{life}</span>
+            </div>
                 <p style={{  fontWeight: 'normal',
                     fontSize: `${askFontSize}px`}}>{workData.ask}</p>
                 {quizType === SINGLE_QUIZ && <SingleQuiz onRadioChange={onRadioChange} rightAnswer={rightAnswer} value={value} workData={workData}/>}
@@ -28,9 +31,6 @@ const Quiz = ({number,workData,settingValue,quizType,onRadioChange,rightAnswer,v
                 <Button type="primary" className="loginBtn" block onClick={goNext}>下一题</Button>
                 {showAnswerBtn && <Button type="primary" className="answerBtn" block onClick={getAnswer}>答案</Button>}
                 </div>
-
-            </Space>
-
         </div>
     )
 }

@@ -375,7 +375,7 @@ const View = () => {
 
                 {/* 表单部分 */}
                 <section>
-                {quizOrSetting === QUIZ_PAGE && <Quiz goNext={goNext}
+                {<Quiz goNext={goNext}
                       workData={workData} settingValue={settingValue}
                       rightAnswer={rightAnswer}
                       getAnswer={getAnswer}
@@ -387,7 +387,7 @@ const View = () => {
                       mulValue={mulValue}
                       life={life} showAnswerBtn={showAnswerBtn}
                 />}
-                {quizOrSetting === SETTING_PAGE && <Setting onSettingCheckBoxChange={onSettingCheckBoxChange}
+                {<Setting onSettingCheckBoxChange={onSettingCheckBoxChange}
                          settingValue={settingValue} goBack={goBack} />}
                 {/*<div className='quiz'>*/}
                 </section>

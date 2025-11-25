@@ -5,6 +5,7 @@ import type {SettingProps} from "../../types/api";
 
 const Setting = ({onSettingCheckBoxChange,settingValue,goBack}:SettingProps) =>{
     return (
+        <div className={style.setting}>
         <div className={style.quiz}>
                 <span className={style.quizSpan}>选择题库：</span>
                 <Radio.Group
@@ -23,6 +24,7 @@ const Setting = ({onSettingCheckBoxChange,settingValue,goBack}:SettingProps) =>{
                 />
 
                 <Button type="primary" className="loginBtn" block onClick={goBack}>确定</Button>
+        </div>
         </div>
     )
 }

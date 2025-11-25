@@ -80,5 +80,6 @@ interface QuizProps {
 interface SettingProps {
     onSettingCheckBoxChange: (e: RadioChangeEvent) => void;
     settingValue: number;
+    settingOpen: boolean;
     goBack: () => void;
 }

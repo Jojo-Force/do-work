@@ -47,6 +47,7 @@ const View = () => {
             className: 'custom-class',
             style: {
                 marginTop: '20vh',
+                color:'#862e9c'
             },
         },2);
     };
@@ -96,8 +97,9 @@ const View = () => {
         setNumber(1);
         setMulValue(['']);
         setLife(LIFE_INIT);
-        setQuizType(SINGLE_QUIZ)
-        setShowAnswerBtn(false)
+        setQuizType(SINGLE_QUIZ);
+        setShowAnswerBtn(false);
+        setSettingOpen(false);
     }
 
 
@@ -115,6 +117,7 @@ const View = () => {
     const [settingValue,setSettingValue] = useState(0);
     const [quizOrSetting,setQuizOrSetting] = useState(0);
     const [showAnswerBtn,setShowAnswerBtn] = useState(false);
+    const [settingOpen,setSettingOpen] = useState(false);
 
     const getQuizType = () => {
         if(workDataAll[settingValue][number-1].answer.length > 1) {
@@ -333,10 +336,12 @@ const View = () => {
     const switchPage = () => {
         if(quizOrSetting === QUIZ_PAGE) {
             setQuizOrSetting(SETTING_PAGE);
+            setSettingOpen(true);
             setLastSettingValue(settingValue);
         }
         if(quizOrSetting === SETTING_PAGE){
             setSettingValue(lastSettingValue);
+            setSettingOpen(false);
             setQuizOrSetting(QUIZ_PAGE);
         }
     }
@@ -388,7 +393,7 @@ const View = () => {
                       life={life} showAnswerBtn={showAnswerBtn}
                 />}
                 {<Setting onSettingCheckBoxChange={onSettingCheckBoxChange}
-                         settingValue={settingValue} goBack={goBack} />}
+                         settingValue={settingValue} goBack={goBack} settingOpen={settingOpen}/>}
                 {/*<div className='quiz'>*/}
                 </section>
 

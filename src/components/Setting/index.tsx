@@ -3,16 +3,16 @@ import {Button, Radio, Space} from "antd";
 import classNames from "classnames";
 import type {SettingProps} from "../../types/api";
 
-const Setting = ({onSettingCheckBoxChange,settingValue,goBack}:SettingProps) =>{
+const Setting = ({onSettingCheckBoxChange,settingValue,goBack,settingOpen}:SettingProps) =>{
     return (
-        <div className={style.setting}>
-        <div className={style.quiz}>
-                <span className={style.quizSpan}>选择题库：</span>
+        <div className={classNames(style.setting, {[style.settingOpen]: settingOpen === true})}>
+        <div className={style.settingBox}>
+                <span className={style.quizSpan}>选择题库</span>
                 <Radio.Group
                     style={{        display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        gap: 8}}
+                        gap: '4px'}}
                     onChange={onSettingCheckBoxChange}
                     value={settingValue}
                     options={[
@@ -23,7 +23,7 @@ const Setting = ({onSettingCheckBoxChange,settingValue,goBack}:SettingProps) =>{
                     ]}
                 />
 
-                <Button type="primary" className="loginBtn" block onClick={goBack}>确定</Button>
+                <Button type="primary" className="settingBtn" block onClick={goBack}>确定</Button>
         </div>
         </div>
     )

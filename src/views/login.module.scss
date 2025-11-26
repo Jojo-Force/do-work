@@ -1,93 +1,118 @@
+@import "@/assets/styles/global.scss";
 .loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  .main {
+    width: 100%;
+  }
+  .loginBox {
+    width: 100%;
+    max-width: 380px;
+    padding: 1.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-  position: relative;
 
-
-    .loginBox {
-      width: 380px;
-      left: 50%;
-      top: 10%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      //transform: translate(-50%, -50%);
-
-      color: #fff;
-      h1 {
-        font-weight: bold;
-        font-size: 22px;
-        text-align: center;
-        color: #fff;
-      }
-      p {
-        text-align: center;
-        margin: 20px 0;
-      }
-      .title {
-        margin-bottom: 40px;
-      }
-      .captchaBox {
-        display: inline-flex;
-        width: 100%;
-        height: 32px;
-        justify-content: space-between;
-        .captchaImg{
-          margin-left: 20px;
-          cursor: pointer;
-        }
-        canvas {
-          margin-left: 10px;
-          border-radius: 6px;
-        }
-      }
-    }
-    .quiz{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .radio {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .quizSpan{
-      color: rgba(255,255,255,0.88);
-      font-size: 25px;
-      &.rightAnswer {
-        color: #f03e3e;
-      }
-    }
-    .quizNumber{
-      font-size: 20px;
-    }
-    .quizAsk{
-      font-weight: normal;
-      font-size: 25px;
+    color: $text_color;
+    h1 {
+      font-weight: bold;
+      font-size: 2.4rem;
+      text-align: center;
+      color: $text_color;
     }
 
-    .betweenBox{
-      display: flex;
-      flex-direction: row;
+    .title {
+      margin-bottom: 3.2rem;
+    }
+    .captchaBox {
+      display: inline-flex;
+      width: 100%;
+      height: 32px;
       justify-content: space-between;
+      .captchaImg {
+        margin-left: 2.4rem;
+        cursor: pointer;
+      }
+      canvas {
+        margin-left: 1.2rem;
+        border-radius: 6px;
+      }
     }
-
-    .quizNameNumber{
-      color: #adb5bd;
+  }
+  .quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .radio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .quizSpan {
+    color: $text-color;
+    font-size: 2.4rem;
+    &.rightAnswer {
+      color: #f03e3e;
     }
+  }
+  .quizNumber {
+    font-size: 2rem;
+  }
+  .quizAsk {
+    font-weight: normal;
+    font-size: 2.4rem;
+  }
 
-    .quizName {
-      font-size: 21px;
-      margin-right: 210px;
-      color: #adb5bd;
-    }
+  .betweenBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-    .settingIcon{
-      font-size: 30px;
-    }
+  .quizNameNumber {
+    color: $text_dark_color;
+  }
 
+  .quizName {
+    font-size: 2rem;
 
+    color: $text_dark_color;
+  }
+
+  .settingIcon {
+    font-size: 3rem;
+    color: $setting_icon_color;
+  }
+}
+
+.loginPage::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background-color: $tint-color2;
+  border-radius: 50%;
+  z-index: -2;
+  transform: translate(-50%, -50%);
+  opacity: 0.25;
+}
+.loginPage::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  background-color: $tint-color2;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-80%, -80%);
+  opacity: 0.3;
 }

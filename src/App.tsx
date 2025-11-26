@@ -1,36 +1,34 @@
-import { useRoutes } from 'react-router-dom';
-import router from "./router"
+import { useRoutes } from "react-router-dom";
+import router from "./router";
 
+import { ConfigProvider } from "antd";
 
-import { ConfigProvider } from 'antd';
-
-function BeforeRouterEnter(){
-  const outlet = useRoutes(router)
+function BeforeRouterEnter() {
+  const outlet = useRoutes(router);
   return outlet;
-  
 }
 
+const primary_color = "#be4bdb";
 
 function App() {
-
   return (
-      <ConfigProvider
-          theme={{
-              components: {
-                  Radio: {
-                      colorPrimary: '#862e9c',
-                  },
-                  Checkbox:{
-                      colorPrimary: '#862e9c',
-                  }
-              },
-          }}
-      >
+    <ConfigProvider
+      theme={{
+        components: {
+          Radio: {
+            colorPrimary: primary_color,
+          },
+          Checkbox: {
+            colorPrimary: primary_color,
+          },
+        },
+      }}
+    >
       <div className="App">
-        <BeforeRouterEnter/>
+        <BeforeRouterEnter />
       </div>
-      </ConfigProvider>
-  )
+    </ConfigProvider>
+  );
 }
 
-export default App
+export default App;

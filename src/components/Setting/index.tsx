@@ -23,7 +23,7 @@ const Setting = ({onSettingCheckBoxChange,settingValue,goBack,settingOpen}:Setti
                     ]}
                 />
 
-                <Button type="primary" className="settingBtn" block onClick={goBack}>确定</Button>
+                <Button type="primary" className={style.settingBtn} block onClick={goBack}>确定</Button>
         </div>
         </div>
     )

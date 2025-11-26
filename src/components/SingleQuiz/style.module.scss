@@ -1,4 +1,4 @@
-@import "@/assets/styles/global.scss";
+@use "@/assets/styles/global.scss" as g;
 
 .quiz {
   display: flex;
@@ -20,36 +20,36 @@
   gap: 8px;
 }
 .quizSpan {
-  color: $text_color;
+  color: g.$text_color;
   font-size: 2.4rem;
   &.rightAnswer {
-    color: $right_answer;
+    color: g.$right_answer;
   }
 }
 .quizSpanSmall {
-  color: $text_color;
+  color: g.$text_color;
   font-size: 1.8rem;
   &.rightAnswer {
-    color: $right_answer;
+    color: g.$right_answer;
   }
 }
 
 .quizSpanMeduim {
-  color: $text_color;
+  color: g.$text_color;
   font-size: 2rem;
   &.rightAnswer {
-    color: $right_answer;
+    color: g.$right_answer;
   }
 }
 .quizNumber {
   font-size: 2rem;
-  color: $text_dark_color;
+  color: g.$text_dark_color;
 }
 
 .quizLife {
   font-size: 2rem;
   font-weight: 700;
-  color: $text_dark_color;
+  color: g.$text_dark_color;
 }
 
 .quizLifeIcon {
@@ -103,7 +103,7 @@
   /*3.通知screen readers*/
   visibility: hidden;
   backdrop-filter: blur(9px);
-  background-color: $setting_box_bg_color;
+  background-color: g.$setting_box_bg_color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,39 +121,39 @@
 }
 
 .nextBtn {
-  background-color: $next_btn_color;
+  background-color: g.$next_btn_color;
   height: 60px;
   margin-top: 4rem;
   margin-bottom: 2.4rem;
   width: 80% !important;
   align-self: center;
   &:hover {
-    background-color: $next_btn_hover_color !important;
+    background-color: g.$next_btn_hover_color !important;
   }
   &:focus {
-    background-color: $next_btn_color !important;
+    background-color: g.$next_btn_color !important;
   }
 }
 
 .answerBtn {
-  background-color: $answer_btn_color;
+  background-color: g.$answer_btn_color;
   height: 60px;
   margin-top: 4rem;
   margin-bottom: 2.4rem;
   width: 80% !important;
   &:hover {
-    background-color: $answer_btn_hover_color !important;
+    background-color: g.$answer_btn_hover_color !important;
   }
 }
 
 .settingBtn {
-  background-color: $setting_btn_color;
+  background-color: g.$setting_btn_color;
   height: 60px;
   width: 80%;
   margin-top: 4rem;
   margin-bottom: 2.4rem;
 
   &:hover {
-    background-color: $setting_btn_hover_color !important;
+    background-color: g.$setting_btn_hover_color !important;
   }
 }

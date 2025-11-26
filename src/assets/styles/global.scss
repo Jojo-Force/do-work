@@ -80,7 +80,8 @@ body {
 .ant-btn,
 .ant-modal,
 .ant-radio-wrapper,
-.ant-checkbox-wrapper {
+.ant-checkbox-wrapper,
+.ant-message-notice {
   font-family: "Noto Serif SC", serif !important; /* 思源宋体 */
   font-weight: 600;
 }
@@ -134,7 +135,13 @@ img {
 .ant-modal .ant-modal-content {
   background-color: $modal_bg_color !important;
 }
-
+.ant-btn {
+  font-size: 1.6rem;
+}
+.ant-modal-confirm .ant-btn {
+  font-size: 2rem;
+  //margin-right: 40%;
+}
 .ant-btn-variant-outlined,
 .ant-btn-variant-dashed {
   background-color: $modal_bg_color;
@@ -160,6 +167,7 @@ img {
 }
 .ant-modal-confirm .ant-modal-confirm-title {
   color: $modal_text_color;
+  font-size: 2rem;
 }
 
 .ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover

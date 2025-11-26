@@ -38,7 +38,6 @@ const Quiz = ({
       </div>
       <p
         style={{
-          fontWeight: "normal",
           fontSize: `${askFontSize}px`,
           fontWeight: "700",
           marginBottom: "2.4rem",

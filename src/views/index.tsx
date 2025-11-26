@@ -37,6 +37,7 @@ const View = () => {
         content: str,
         className: "custom-class",
         style: {
+          fontSize: "2rem",
           marginTop: "20vh",
         },
       },
@@ -50,8 +51,8 @@ const View = () => {
         content: str,
         className: "custom-class",
         style: {
+          fontSize: "2rem",
           marginTop: "20vh",
-          color: "#862e9c",
         },
       },
       2,
@@ -359,11 +360,15 @@ const View = () => {
   };
   const showConfirm = () => {
     confirm({
-      title: "你确定要选择新的题库，重新开始吗?",
+      title: "要选择新的题库，重新开始吗?",
       icon: <ExclamationCircleOutlined />,
       content: "",
       okText: "是",
       cancelText: "否",
+      style: {
+        fontSize: "2rem",
+        marginTop: "20vh",
+      },
       onOk() {
         msgSucess("选择了新的题目，重新开始！");
         setLastSettingValue(settingValue);

@@ -31,6 +31,10 @@ const View = () => {
     loadData();
   }, []);
 
+  const getLifeInit = () => {
+    return Math.ceil((LIFE_INIT * workDataAll[settingValue].length) / 150);
+  };
+
   const msgSucess = (str: string) => {
     message.success(
       {
@@ -83,7 +87,7 @@ const View = () => {
     if (localStorage.getItem("mulValue") !== "") {
       setMulValue(JSON.parse(localStorage.getItem("mulValue") as string));
     }
-    setLife(parseInt(localStorage.getItem("life") || LIFE_INIT.toString()));
+    setLife(parseInt(localStorage.getItem("life") || getLifeInit().toString()));
     if (localStorage.getItem("quizType") !== "") {
       setQuizType(localStorage.getItem("quizType") as string);
     }
@@ -105,7 +109,7 @@ const View = () => {
     setWorkData(getRandomData(workDataAll[settingValue][0]));
     setNumber(1);
     setMulValue([""]);
-    setLife(LIFE_INIT);
+    setLife(getLifeInit());
     setQuizType(SINGLE_QUIZ);
     setShowAnswerBtn(false);
     setSettingOpen(false);
@@ -152,7 +156,7 @@ const View = () => {
       setValue("");
       setMulValue([""]);
       setRightAnswer("");
-      setLife(LIFE_INIT);
+      setLife(getLifeInit());
       setShowAnswerBtn(false);
     }
   }, [life, settingValue]);

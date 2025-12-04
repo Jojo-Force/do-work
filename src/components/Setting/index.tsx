@@ -80,7 +80,7 @@ const Setting = ({
               label: (
                 <span
                   className={classNames(style.quizSpan, {
-                    [style.rightAnswer]: settingValue === 3,
+                    [style.rightAnswer]: settingValue === 4,
                   })}
                 >
                   第一章
@@ -92,10 +92,22 @@ const Setting = ({
               label: (
                 <span
                   className={classNames(style.quizSpan, {
-                    [style.rightAnswer]: settingValue === 3,
+                    [style.rightAnswer]: settingValue === 5,
                   })}
                 >
                   第二章
+                </span>
+              ),
+            },
+            {
+              value: 6,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 6,
+                  })}
+                >
+                  第三章
                 </span>
               ),
             },

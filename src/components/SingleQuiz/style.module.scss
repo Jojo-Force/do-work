@@ -11,8 +11,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-  width: 50%;
+  gap: 1rem;
+  width: 60%;
 }
 .radio {
   display: flex;
@@ -21,7 +21,7 @@
 }
 .quizSpan {
   color: g.$text_color;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   &.rightAnswer {
     color: g.$right_answer;
   }
@@ -150,9 +150,9 @@
   background-color: g.$setting_btn_color;
   height: 60px;
   width: 80%;
-  margin-top: 4rem;
+  margin-top: 0rem;
   margin-bottom: 2.4rem;
-
+  z-index: 9999;
   &:hover {
     background-color: g.$setting_btn_hover_color !important;
   }

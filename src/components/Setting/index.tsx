@@ -2,7 +2,7 @@ import style from "../SingleQuiz/style.module.scss";
 import { Button, Radio, Space } from "antd";
 import classNames from "classnames";
 import type { SettingProps } from "../../types/api";
-
+import workDataAll from "../../workdata";
 const Setting = ({
   onSettingCheckBoxChange,
   settingValue,
@@ -35,7 +35,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 0,
                   })}
                 >
-                  第一套
+                  第一套{"(" + workDataAll[0].length + ")"}
                 </span>
               ),
             },
@@ -47,7 +47,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 1,
                   })}
                 >
-                  第二套
+                  第二套{"(" + workDataAll[1].length + ")"}
                 </span>
               ),
             },
@@ -59,7 +59,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 2,
                   })}
                 >
-                  第三套
+                  第三套{"(" + workDataAll[2].length + ")"}
                 </span>
               ),
             },
@@ -71,7 +71,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 3,
                   })}
                 >
-                  第四套
+                  第四套{"(" + workDataAll[3].length + ")"}
                 </span>
               ),
             },
@@ -83,7 +83,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 4,
                   })}
                 >
-                  第一章
+                  1.基础心理学{"(" + workDataAll[4].length + ")"}
                 </span>
               ),
             },
@@ -95,7 +95,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 5,
                   })}
                 >
-                  第二章
+                  2.社会心理学{"(" + workDataAll[5].length + ")"}
                 </span>
               ),
             },
@@ -107,7 +107,79 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 6,
                   })}
                 >
-                  第三章
+                  3.发展心理学{"(" + workDataAll[6].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 7,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 7,
+                  })}
+                >
+                  4.变态心理学{"(" + workDataAll[7].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 8,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 8,
+                  })}
+                >
+                  5.咨询心理学{"(" + workDataAll[8].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 9,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 9,
+                  })}
+                >
+                  6.心理诊断技能{"(" + workDataAll[9].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 10,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 10,
+                  })}
+                >
+                  7.心理咨询技能{"(" + workDataAll[10].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 11,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 11,
+                  })}
+                >
+                  8.心理测试技能{"(" + workDataAll[11].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 12,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 12,
+                  })}
+                >
+                  9.职业伦理{"(" + workDataAll[12].length + ")"}
                 </span>
               ),
             },

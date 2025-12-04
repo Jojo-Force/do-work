@@ -269,50 +269,50 @@ const View = () => {
     //验证是否有空值
     if (getQuizType() === SINGLE_QUIZ) {
       console.log("本题目选择为：单选：", value);
-      if (!value.trim()) {
-        msgSucess("请选择!");
-        return;
-      }
-      if (value !== workData.answer) {
-        msgError("回答错误!");
-        setLife(life - LIFE_ERR);
-        setShowAnswerBtn(true);
-        return;
-      }
+      // if (!value.trim()) {
+      //   msgSucess("请选择!");
+      //   return;
+      // }
+      // if (value !== workData.answer) {
+      //   msgError("回答错误!");
+      //   setLife(life - LIFE_ERR);
+      //   setShowAnswerBtn(true);
+      //   return;
+      // }
 
       judgeNext();
     }
 
     if (getQuizType() === MULTI_QUIZ) {
       console.log("本题目选择为：多选：", mulValue, mulValue.length);
-      if (mulValue.length <= 1) {
-        msgSucess("请选择!");
-        return;
-      }
-
-      if (!getMulRight()) {
-        msgError("回答错误!");
-        setLife(life - LIFE_ERR);
-        setShowAnswerBtn(true);
-        return;
-      }
+      // if (mulValue.length <= 1) {
+      //   msgSucess("请选择!");
+      //   return;
+      // }
+      //
+      // if (!getMulRight()) {
+      //   msgError("回答错误!");
+      //   setLife(life - LIFE_ERR);
+      //   setShowAnswerBtn(true);
+      //   return;
+      // }
 
       judgeNext();
     }
 
     if (getQuizType() === JUDGE_QUIZ) {
       console.log("本题目选择为：判断题：", mulValue);
-      if (!value.trim()) {
-        msgSucess("请选择!");
-        return;
-      }
-
-      if (value !== workData.answer) {
-        msgError("回答错误!");
-        setLife(life - LIFE_ERR);
-        setShowAnswerBtn(true);
-        return;
-      }
+      // if (!value.trim()) {
+      //   msgSucess("请选择!");
+      //   return;
+      // }
+      //
+      // if (value !== workData.answer) {
+      //   msgError("回答错误!");
+      //   setLife(life - LIFE_ERR);
+      //   setShowAnswerBtn(true);
+      //   return;
+      // }
 
       judgeNext();
     }

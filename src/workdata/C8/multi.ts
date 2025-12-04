@@ -66,7 +66,7 @@ const workDataMulti: Work[] = [
     answer: "BCD",
   },
   {
-    ask: "F的高分与低分的范围分别为（）。",
+    ask: "16PF的高分与低分的范围分别为（）。",
     A: "1分~2分",
     B: "1分~3分",
     C: "8分~10分",
@@ -98,7 +98,7 @@ const workDataMulti: Work[] = [
     answer: "ABD",
   },
   {
-    ask: "F量表中乐群性高分者的人格特征是（）。",
+    ask: "16PF量表中乐群性高分者的人格特征是（）。",
     A: "冷淡",
     B: "环性情感",
     C: "外向",

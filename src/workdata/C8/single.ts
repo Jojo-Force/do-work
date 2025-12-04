@@ -90,7 +90,7 @@ const workDataSingle: Work[] = [
     answer: "B",
   },
   {
-    ask: "F在编制过程中主要使用了（）。",
+    ask: "16PF在编制过程中主要使用了（）。",
     A: "方差分析",
     B: "因素分析",
     C: "经验效标",
@@ -98,7 +98,7 @@ const workDataSingle: Work[] = [
     answer: "B",
   },
   {
-    ask: "F施测时的时间限制是（）。",
+    ask: "16PF施测时的时间限制是（）。",
     A: "30分钟",
     B: "40分钟",
     C: "50分钟",
@@ -122,7 +122,7 @@ const workDataSingle: Work[] = [
     answer: "A",
   },
   {
-    ask: "F的答题形式属于（）。",
+    ask: "16PF的答题形式属于（）。",
     A: "是非式",
     B: "折中是非式",
     C: "文字等级式",

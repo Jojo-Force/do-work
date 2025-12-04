@@ -87,6 +87,18 @@ const Setting = ({
                 </span>
               ),
             },
+            {
+              value: 5,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 3,
+                  })}
+                >
+                  第二章
+                </span>
+              ),
+            },
           ]}
         />
 

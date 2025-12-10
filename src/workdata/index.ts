@@ -2,6 +2,8 @@ import workData1 from "./test1";
 import workData2 from "./test2";
 import workData3 from "./test3";
 import workData4 from "./test4";
+import workData5 from "./test5";
+import workData6 from "./test6";
 import C1 from "./C1";
 import C2 from "./C2";
 import C3 from "./C3";
@@ -18,6 +20,8 @@ const workData: Work[][] = [
   [...workData2],
   [...workData3],
   [...workData4],
+  [...workData5],
+  [...workData6],
   [...C1],
   [...C2],
   [...C3],

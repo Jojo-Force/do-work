@@ -83,7 +83,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 4,
                   })}
                 >
-                  1.基础心理学{"(" + workDataAll[4].length + ")"}
+                  第五套{"(" + workDataAll[4].length + ")"}
                 </span>
               ),
             },
@@ -95,7 +95,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 5,
                   })}
                 >
-                  2.社会心理学{"(" + workDataAll[5].length + ")"}
+                  第六套{"(" + workDataAll[5].length + ")"}
                 </span>
               ),
             },
@@ -107,7 +107,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 6,
                   })}
                 >
-                  3.发展心理学{"(" + workDataAll[6].length + ")"}
+                  1.基础心理学{"(" + workDataAll[6].length + ")"}
                 </span>
               ),
             },
@@ -119,7 +119,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 7,
                   })}
                 >
-                  4.变态心理学{"(" + workDataAll[7].length + ")"}
+                  2.社会心理学{"(" + workDataAll[7].length + ")"}
                 </span>
               ),
             },
@@ -131,7 +131,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 8,
                   })}
                 >
-                  5.咨询心理学{"(" + workDataAll[8].length + ")"}
+                  3.发展心理学{"(" + workDataAll[8].length + ")"}
                 </span>
               ),
             },
@@ -143,7 +143,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 9,
                   })}
                 >
-                  6.心理诊断技能{"(" + workDataAll[9].length + ")"}
+                  4.变态心理学{"(" + workDataAll[9].length + ")"}
                 </span>
               ),
             },
@@ -155,7 +155,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 10,
                   })}
                 >
-                  7.心理咨询技能{"(" + workDataAll[10].length + ")"}
+                  5.咨询心理学{"(" + workDataAll[10].length + ")"}
                 </span>
               ),
             },
@@ -167,7 +167,7 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 11,
                   })}
                 >
-                  8.心理测试技能{"(" + workDataAll[11].length + ")"}
+                  6.心理诊断技能{"(" + workDataAll[11].length + ")"}
                 </span>
               ),
             },
@@ -179,7 +179,31 @@ const Setting = ({
                     [style.rightAnswer]: settingValue === 12,
                   })}
                 >
-                  9.职业伦理{"(" + workDataAll[12].length + ")"}
+                  7.心理咨询技能{"(" + workDataAll[12].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 13,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 13,
+                  })}
+                >
+                  8.心理测试技能{"(" + workDataAll[13].length + ")"}
+                </span>
+              ),
+            },
+            {
+              value: 14,
+              label: (
+                <span
+                  className={classNames(style.quizSpan, {
+                    [style.rightAnswer]: settingValue === 14,
+                  })}
+                >
+                  9.职业伦理{"(" + workDataAll[14].length + ")"}
                 </span>
               ),
             },
